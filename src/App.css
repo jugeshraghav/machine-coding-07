@@ -2,8 +2,6 @@
   text-align: center;
   background-color: black;
   color: white;
-  width: 100vw;
-  height: 100vw;
 }
 * {
   margin: 0;
@@ -12,6 +10,39 @@
 .back-btn {
   color: white;
   font-size: 30px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+.back-btn:hover {
+  color: blue;
+}
+.destination-detail-page,
+.destination-page,
+.country-page,
+.home-page,
+.continent-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.page-header {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+button {
+  padding: 0.5rem 1rem;
+  border: 1px solid blue;
+  border-radius: 8px;
+}
+button:hover {
+  background-color: blue;
+  color: white;
 }
 /************Travel Card******/
 .travel-card-container {
@@ -36,7 +67,6 @@
   display: flex;
   width: 600px;
   gap: 4rem;
-  margin: auto;
   text-align: left;
   align-items: center;
 }

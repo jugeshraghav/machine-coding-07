@@ -10,6 +10,7 @@ export const Country = () => {
   } = useDataContext();
 
   const navigate = useNavigate();
+
   const { continentId } = useParams();
   const currentContinent = data?.continents?.find(
     ({ id }) => id === Number(continentId)
@@ -18,20 +19,31 @@ export const Country = () => {
   const countries = currentContinent?.countries;
   return (
     <>
-      <p>Top Countries in {currentContinent?.name} for your next holiday.</p>
-      <div className="continent-container">
-        {countries?.map((country) => (
-          <div
-            key={country?.id}
-            onClick={() =>
-              navigate(`/destination/${currentContinent?.id}/${country?.id}`)
-            }
-          >
-            <TravelCard image={country?.image} name={country?.name} />
+      <div className="country-page">
+        <>
+          <div className="page-header">
+            <p>
+              Top Countries in {currentContinent?.name} for your next holiday.
+            </p>
           </div>
-        ))}
+          <div className="continent-container">
+            {countries?.map((country) => (
+              <div
+                key={country?.id}
+                onClick={() =>
+                  navigate(
+                    `/destination/${currentContinent?.id}/${country?.id}`
+                  )
+                }
+              >
+                <TravelCard image={country?.image} name={country?.name} />
+              </div>
+            ))}
+          </div>
+        </>
       </div>
-      <FaBackward className="back-btn" />
+
+      <FaBackward className="back-btn" onClick={() => navigate(-1)} />
     </>
   );
 };

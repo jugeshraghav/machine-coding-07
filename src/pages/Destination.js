@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { TravelCard } from "../components/TravelCard";
 import { useDataContext } from "../contexts/DataContext";
+import { FaBackward } from "react-icons/fa";
 export const Destination = () => {
   const {
     state: { data },
@@ -19,8 +20,12 @@ export const Destination = () => {
   const destinations = currentCountry?.destinations;
   return (
     <>
-      <>
-        <p>Top Destinations in {currentCountry?.name} for your next holiday.</p>
+      <div className="destination-page">
+        <div className="page-header">
+          <p>
+            Top Destinations in {currentCountry?.name} for your next holiday.
+          </p>
+        </div>
         <div className="continent-container">
           {destinations?.map((destination) => (
             <div
@@ -35,7 +40,8 @@ export const Destination = () => {
             </div>
           ))}
         </div>
-      </>
+      </div>
+      <FaBackward className="back-btn" onClick={() => navigate(-1)} />
     </>
   );
 };
