@@ -1,24 +1,27 @@
 import { createContext, useContext, useReducer } from "react";
+import { data } from "../constants/Data";
 
-//initial state
-const initial_state = {};
-//reducers
-const reducer = (state, action) => {
-  // const {type,payload}=action;
-  // switch(type){
-  //     default:
-  //         return state;
-  // }
+const DataContext = createContext({
+  state: {},
+  dispatch: () => {},
+});
+
+const initialState = {
+  data: data,
 };
-const DataContext = createContext();
+
+const reducer = (state, action) => {};
 
 const DataProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initial_state);
-  <DataContext.Provider value={{ state, dispatch }}>
-    {children}
-  </DataContext.Provider>;
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <DataContext.Provider value={{ state, dispatch }}>
+      {children}
+    </DataContext.Provider>
+  );
 };
 
-export const useData = () => useContext(DataContext);
+export const useDataContext = () => useContext(DataContext);
 
-export { DataProvider };
+export default DataProvider;
