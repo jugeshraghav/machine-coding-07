@@ -49,6 +49,7 @@ button:hover {
   width: 250px;
   height: 250px;
   border-radius: 8px;
+  cursor: pointer;
 }
 .travel-card-container img {
   width: 100%;
