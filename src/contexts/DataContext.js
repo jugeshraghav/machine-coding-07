@@ -12,8 +12,8 @@ const reducer = (state, action) => {
 };
 const DataContext = createContext();
 
-const [state, dispatch] = useReducer(reducer, initial_state);
 const DataProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initial_state);
   <DataContext.Provider value={{ state, dispatch }}>
     {children}
   </DataContext.Provider>;
