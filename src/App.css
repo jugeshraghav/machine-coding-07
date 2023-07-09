@@ -9,7 +9,10 @@
   margin: 0;
   padding: 0;
 }
-
+.back-btn {
+  color: white;
+  font-size: 30px;
+}
 /************Travel Card******/
 .travel-card-container {
   width: 250px;

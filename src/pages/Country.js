@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { TravelCard } from "../components/TravelCard";
 import { useDataContext } from "../contexts/DataContext";
+import { FaBackward } from "react-icons/fa";
 
 export const Country = () => {
   const {
@@ -30,6 +31,7 @@ export const Country = () => {
           </div>
         ))}
       </div>
+      <FaBackward className="back-btn" />
     </>
   );
 };

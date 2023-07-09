@@ -1,12 +1,10 @@
 import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import { useDataContext } from "../contexts/DataContext";
 export const DestinationDetail = () => {
   const {
     state: { data },
   } = useDataContext();
 
-  const navigate = useNavigate();
   const { continentId, countryId, desId } = useParams();
   const currentContinent = data?.continents?.find(
     ({ id }) => id === Number(continentId)
@@ -21,7 +19,6 @@ export const DestinationDetail = () => {
     ({ id }) => id === Number(desId)
   );
   const {
-    id,
     name,
     description,
     image,
@@ -64,7 +61,7 @@ export const DestinationDetail = () => {
             {ticketPrice}
           </p>
           <p>
-            <a href={website} target="_blank">
+            <a href={website} target="_blank" rel="noreferrer">
               Website
             </a>
           </p>
